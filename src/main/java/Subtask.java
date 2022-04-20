@@ -1,15 +1,19 @@
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
 
 @Entity
 public class Subtask {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long subtaskId;
     private String name;
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "id", nullable = false)
+    @JoinColumn(name = "taskId", nullable = false)
     private Task task;
 }
